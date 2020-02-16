@@ -1,0 +1,17 @@
+<div>
+    <table>
+        <tr>
+            <td colspan="2">
+                {{ pizza.name }}
+            </td>
+        </tr>
+        <tr *ngFor="let preis of pizza.preise; index as i" (click)="onAdd(pizza.groesen[i])">
+            <td>
+                {{ pizza.groesen[i] }}
+            </td>
+            <td>
+                {{ preis | currency:'EUR':'symbol-narrow'}}
+            </td>
+        </tr>
+    </table>
+</div>
