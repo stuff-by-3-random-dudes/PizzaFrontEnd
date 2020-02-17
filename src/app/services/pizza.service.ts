@@ -13,6 +13,7 @@ import { Bestellung } from '../models/Bestellung';
 export class PizzaService {
   pizzasUrl:string = 'https://pizzabestellungapi.azurewebsites.net/pizza';
   bestellsUrl:string = 'https://pizzabestellungapi.azurewebsites.net/bestell';
+  loginUrl:string = 'https://pizzabestellungapi.azurewebsites.net/login';
 
   public groesenArray:string[] = ['Preis', 'Klein ', 'Mittel', 'Groß  '];
 
@@ -27,29 +28,52 @@ export class PizzaService {
   postOrder(pizza:Pizza, groese:number):void
   {
     var b:Bestellung = new Bestellung();
-    b.Besteller = window.prompt("Name:");
-    if(b.Besteller.trim() != ""){
-      b.Extra = window.prompt("Extra:");
-      b.Groese = groese;
-      b.Id = pizza.id;
-      // var x = this.http.post<Bestellung>(this.bestellsUrl, [{
-      //   "Id":b.Id,
-      //   "Groese":b.Groese,
-      //   "Besteller":b.Besteller,
-      //   "Extra":b.Extra
-      // }]);
-     var bs:Bestellung[] = [];
-      bs.push(b);
+    var username:string = window.prompt("Digikabu UserName:");
+    console.log(username);
+    if(username != null && username.trim() !== ""){
+       var passwort:string = window.prompt("Digikabu Passwort");
+      if(passwort != null  && passwort.trim() !== ""){
+        var oklog = this.http.post<Boolean>(this.loginUrl, {"username":username, "password":passwort});
+        oklog.subscribe(x => {
+          if(x){
+            b.Besteller = username;
+            b.Extra = window.prompt("Extra:");
+            b.Groese = groese;
+            b.Id = pizza.id;
+            // var x = this.http.post<Bestellung>(this.bestellsUrl, [{
+            //   "Id":b.Id,
+            //   "Groese":b.Groese,
+            //   "Besteller":b.Besteller,
+            //   "Extra":b.Extra
+            // }]);
+           var bs:Bestellung[] = [];
+            bs.push(b);
+            
       
-
-      var x = this.http.post<string>(this.bestellsUrl, JSON.parse(JSON.stringify(bs)));
-      x.subscribe(
-        x => {
-          console.log(x);
-          
-        }
-      )
+            var s = this.http.post<string>(this.bestellsUrl, JSON.parse(JSON.stringify(bs)));
+            s.subscribe(
+              v => {
+                alert(v);
+              }
+            )
+          }
+          else
+          {
+            alert("Fehlerhafte anmeldedaten");
+          }
+        });
+      }
+      
     }
+     
+    
+    
+
+
+   // b.Besteller = window.prompt("Name:");
+   // if(b.Besteller.trim() != ""){}
+      
+    
     
     
   }
