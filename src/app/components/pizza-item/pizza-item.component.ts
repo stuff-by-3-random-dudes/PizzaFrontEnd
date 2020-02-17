@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pizza } from 'src/app/models/Pizza';
 
+import { PizzaService } from '../../services/pizza.service';
+
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
@@ -10,14 +12,15 @@ import { Pizza } from 'src/app/models/Pizza';
 export class PizzaItemComponent implements OnInit {
   @Input() pizza:Pizza;
 
-  constructor() { }
+  constructor(private pizzaService:PizzaService) { }
 
   ngOnInit(): void {
   }
 
   onAdd(groese:number)
   {
-    alert(groese);
+    //alert(groese);
+    this.pizzaService.postOrder(this.pizza, groese);
   }
 
 }
