@@ -1,4 +1,5 @@
-<div class="cell">
+<!-- <div class="cell"> -->
+<!-- <div>
     <table>
         <tr>
             <td colspan="2">
@@ -14,4 +15,22 @@
             </td>
         </tr>
     </table>
+</div> -->
+<div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ pizza.name }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+            <mat-list *ngFor="let preis of pizza.preise; index as i">
+                <ng-container *ngIf="i != 0">
+                    <mat-divider></mat-divider>
+                </ng-container>
+                <mat-list-item>
+                    {{ preis }}
+                    {{ pizza.groesen[i] }}
+                </mat-list-item>
+            </mat-list>
+    </mat-expansion-panel>
 </div>

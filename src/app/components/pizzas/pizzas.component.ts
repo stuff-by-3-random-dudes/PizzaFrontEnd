@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Pizza } from '../../models/Pizza'
-import { PizzaService } from '../../services/pizza.service'
+import { Pizza } from '../../models/Pizza';
+import { PizzaService } from '../../services/pizza.service';
+
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-pizzas',
