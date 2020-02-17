@@ -4,6 +4,8 @@ import { PizzaService } from '../../services/pizza.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-pizza-item',
