@@ -38,17 +38,19 @@
     </button> -->
 
 <div>
-    <mat-list *ngFor="let preis of pizza.preise; index as i">
-        <ng-container *ngIf="i != 0">
-            <mat-divider></mat-divider>
-        </ng-container>
-        <mat-list-item>
-            {{ pizzaService.groesenArray[pizza.groesen[i]] }}:
-            {{ preis | currency:'EUR':'symbol-narrow' }}
-            
-            <button mat-raised-button color="primary" (click)="onAdd(pizza.groesen[i])">
-            Bestellen
-            </button>
-        </mat-list-item>
-    </mat-list>
+    <table>
+        <tr  *ngFor="let preis of pizza.preise; index as i">
+            <td>
+                {{ pizzaService.groesenArray[pizza.groesen[i]] }}:
+            </td>
+            <td>
+                {{ preis | currency:'EUR':'symbol-narrow' }}
+            </td>
+            <td>
+                <button mat-raised-button color="primary" (click)="onAdd(pizza.groesen[i])">
+                Bestellen
+                </button>
+            </td>
+        </tr>
+    </table>
 </div>
