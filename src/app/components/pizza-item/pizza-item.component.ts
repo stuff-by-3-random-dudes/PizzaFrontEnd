@@ -3,6 +3,7 @@ import { Pizza } from 'src/app/models/Pizza';
 import { PizzaService } from '../../services/pizza.service';
 
 import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-pizza-item',
