@@ -3,5 +3,14 @@
     padding: 0px;
 } */
 button {
-    margin-left: 15px;
+    /* margin-left: 15px; */
+
+
+    margin-right: 20px;
+    /*text-align: right;
+    float: right; */
+    padding:0px;
+    /* text-align: center;
+    display:table-cell;
+    vertical-align:middle; */
 }

@@ -14,7 +14,7 @@ export class PizzaService {
   pizzasUrl:string = 'https://pizzabestellungapi.azurewebsites.net/pizza';
   bestellsUrl:string = 'https://pizzabestellungapi.azurewebsites.net/bestell';
 
-  public groesenArray:string[] = ['Preis', 'Klein', 'Mittel', 'Groß'];
+  public groesenArray:string[] = ['Preis', 'Klein ', 'Mittel', 'Groß  '];
 
   constructor(private http:HttpClient) { }
 

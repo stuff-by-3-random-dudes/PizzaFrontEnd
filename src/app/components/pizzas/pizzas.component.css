@@ -35,12 +35,12 @@ table {
     padding: 8px;
     font-weight: lighter;
     margin: 8px 0;
-    height: 104px;
+    height: auto;
   }
   
   .example-element-symbol {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 20px;
     line-height: normal;
   }
   
