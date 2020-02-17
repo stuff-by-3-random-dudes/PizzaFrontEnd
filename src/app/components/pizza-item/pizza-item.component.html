@@ -16,7 +16,7 @@
         </tr>
     </table>
 </div> -->
-<div>
+
     <!-- <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -36,4 +36,15 @@
     <!-- <button mat-raised-button (click)="openDialog()">
         {{ pizza.name }}
     </button> -->
+
+<div>
+    <mat-list *ngFor="let preis of pizza.preise; index as i">
+        <ng-container *ngIf="i != 0">
+            <mat-divider></mat-divider>
+        </ng-container>
+        <mat-list-item (click)="onAdd(pizza.groesen[i])">
+            {{ pizza.groesen[i] }}:
+            {{ preis | currency:'EUR':'symbol-narrow' }}
+        </mat-list-item>
+    </mat-list>
 </div>

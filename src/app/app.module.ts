@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatExpansionModule } from '@angular/material/expansion';
 // import { MatDividerModule } from '@angular/material/divider';
-// import { MatListModule } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 // import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 
@@ -27,7 +27,7 @@ import { MatTableModule } from '@angular/material/table';
     // MatGridListModule,
     // MatExpansionModule,
     // MatDividerModule,
-    // MatListModule,
+    MatListModule,
     // MatButtonModule,
     MatTableModule
   ],
