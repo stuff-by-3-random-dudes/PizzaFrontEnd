@@ -2,11 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Pizza } from 'src/app/models/Pizza';
 import { PizzaService } from '../../services/pizza.service';
 
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
-
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',

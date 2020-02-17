@@ -7,10 +7,12 @@ import { PizzasComponent } from './components/pizzas/pizzas.component';
 import { PizzaItemComponent } from './components/pizza-item/pizza-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
+// import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatExpansionModule } from '@angular/material/expansion';
+// import { MatDividerModule } from '@angular/material/divider';
+// import { MatListModule } from '@angular/material/list';
+// import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,12 @@ import { MatListModule } from '@angular/material/list';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatGridListModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatListModule
+    // MatGridListModule,
+    // MatExpansionModule,
+    // MatDividerModule,
+    // MatListModule,
+    // MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
