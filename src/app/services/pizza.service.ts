@@ -26,21 +26,29 @@ export class PizzaService {
   {
     var b:Bestellung = new Bestellung();
     b.Besteller = window.prompt("Name:");
-    b.Extra = window.prompt("Extra:");
-    b.Groese = groese;
-    b.Id = pizza.id;
-    var x = this.http.post<Bestellung>(this.bestellsUrl, [{
-      "Id":b.Id,
-      "Groese":b.Groese,
-	    "Besteller":b.Besteller,
-	    "Extra":b.Extra
-    }]);
-    x.subscribe(
-      x => {
-        console.log(x);
-        
-      }
-    )
+    if(b.Besteller.trim() != ""){
+      b.Extra = window.prompt("Extra:");
+      b.Groese = groese;
+      b.Id = pizza.id;
+      // var x = this.http.post<Bestellung>(this.bestellsUrl, [{
+      //   "Id":b.Id,
+      //   "Groese":b.Groese,
+      //   "Besteller":b.Besteller,
+      //   "Extra":b.Extra
+      // }]);
+     var bs:Bestellung[] = [];
+      bs.push(b);
+      
+
+      var x = this.http.post<string>(this.bestellsUrl, JSON.parse(JSON.stringify(bs)));
+      x.subscribe(
+        x => {
+          console.log(x);
+          
+        }
+      )
+    }
+    
     
   }
 }
