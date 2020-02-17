@@ -13,7 +13,7 @@ import { MatListModule } from '@angular/material/list';
 export class PizzaItemComponent implements OnInit {
   @Input() pizza:Pizza;
 
-  constructor(private pizzaService:PizzaService) { }
+  constructor(public pizzaService:PizzaService) { }
 
   ngOnInit(): void {
   }

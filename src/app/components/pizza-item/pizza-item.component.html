@@ -43,7 +43,7 @@
             <mat-divider></mat-divider>
         </ng-container>
         <mat-list-item (click)="onAdd(pizza.groesen[i])">
-            {{ pizza.groesen[i] }}:
+            {{ pizzaService.groesenArray[pizza.groesen[i]] }}:
             {{ preis | currency:'EUR':'symbol-narrow' }}
         </mat-list-item>
     </mat-list>
