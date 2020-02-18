@@ -6,4 +6,5 @@ export class Pizza
     name:string;
     groesen:number[];
     preise:number[];
+    angId:string;
 }

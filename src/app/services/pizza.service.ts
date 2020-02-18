@@ -5,19 +5,24 @@ import { Pizza } from '../models/Pizza';
 import { Observable } from 'rxjs';
 
 import { Bestellung } from '../models/Bestellung';
+import { ShoppingCartService } from './shopping-cart.service';
+import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 
+import {map} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
-  pizzasUrl:string = 'https://pizzabestellungapi.azurewebsites.net/pizza';
+  //pizzasUrl:string = 'https://pizzabestellungapi.azurewebsites.net/pizza';
+  pizzasUrl:string = 'https://pizzabestellungapi.azurewebsites.net/angpizza';
   bestellsUrl:string = 'https://pizzabestellungapi.azurewebsites.net/bestell';
   loginUrl:string = 'https://pizzabestellungapi.azurewebsites.net/login';
 
   public groesenArray:string[] = ['Preis', 'Klein', 'Mittel', 'Groß'];
+  private username: string;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private shoppingCart:ShoppingCartService) { }
 
   getPizzas():Observable<Pizza[]>
   {
@@ -25,8 +30,29 @@ export class PizzaService {
     return this.http.get<Pizza[]>(this.pizzasUrl);
   }
 
+  postVerify(username:string, passwort:string):Observable<Boolean>
+  {
+    this.username = username;
+   
+    console.log("INPWD");
+    
+    var oklog = this.http.post<Boolean>(this.loginUrl, {"username":username, "password":passwort});
+    oklog.subscribe(x => {
+      console.log("in sub" + x)});
+    return oklog;
+  }
+
+  postBestellung():Observable<String>
+  {
+    this.shoppingCart.bestellungen.forEach(bestellung => {
+      bestellung.Besteller = this.username;
+    });
+    return this.http.post<string>(this.bestellsUrl, JSON.parse(JSON.stringify(this.shoppingCart.bestellungen)));
+  }
+
   postOrder(pizza:Pizza, groese:number):void
   {
+    console.log("deprecated!!!!");
     var b:Bestellung = new Bestellung();
     var username:string = window.prompt("Digikabu UserName:");
     console.log(username);
@@ -65,16 +91,5 @@ export class PizzaService {
       }
       
     }
-     
-    
-    
-
-
-   // b.Besteller = window.prompt("Name:");
-   // if(b.Besteller.trim() != ""){}
-      
-    
-    
-    
   }
 }

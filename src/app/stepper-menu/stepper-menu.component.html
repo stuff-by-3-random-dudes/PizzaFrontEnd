@@ -1,0 +1,72 @@
+<div>
+<!-- <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          <app-pizzas></app-pizzas>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper> -->
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [editable]="false">
+    <ng-template matStepLabel >Bestellung auswählen</ng-template>
+    <div>
+    <button mat-button matStepperNext (click)="auswaehlbar=false;bestellbar=true;auswaehlbar=false">Weiter</button>
+    <app-pizzas></app-pizzas>
+    </div>
+    </mat-step>
+    <mat-step [editable]="false">
+        <ng-template matStepLabel>Anmeldung</ng-template>
+        <mat-form-field>
+            <input [readonly]="ok" #un matInput placeholder="Nutzername" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input [readonly]="ok" #pw type="password" matInput placeholder="Passwort" required>
+        </mat-form-field>
+        <div *ngIf="!ok">
+          <button mat-button (click)="pruefe(un.value, pw.value);">Prüfen</button>
+        </div>
+        <div *ngIf="ok">
+            <button mat-button (click)="bestellbar=false" matStepperNext>Bestellen</button>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Bestätigung</ng-template>
+        <div>
+          <!-- <ng-component *ngFor="let best of bestellungen">
+            {{ best }}
+          </ng-component> -->
+          {{ bestellungen }}
+        </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

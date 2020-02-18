@@ -13,12 +13,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { StepperMenuComponent } from './stepper-menu/stepper-menu.component';
+import { SnackBarLoginComponent } from './components/snack-bar-login/snack-bar-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PizzasComponent,
-    PizzaItemComponent
+    PizzaItemComponent,
+    StepperMenuComponent,
+    SnackBarLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,10 @@ import { MatTableModule } from '@angular/material/table';
     // MatDividerModule,
     MatListModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

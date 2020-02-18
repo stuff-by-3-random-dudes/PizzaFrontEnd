@@ -47,8 +47,8 @@
                 {{ preis | currency:'EUR':'symbol-narrow' }}
             </td>
             <td>
-                <button mat-raised-button color="primary" (click)="onAdd(pizza.groesen[i])">
-                Bestellen
+                <button matStepperNext mat-raised-button color="primary" (click)="onAdd(pizza.groesen[i])">
+                    Bestellen
                 </button>
             </td>
         </tr>

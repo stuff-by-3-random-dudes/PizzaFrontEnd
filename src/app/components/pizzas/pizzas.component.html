@@ -5,7 +5,7 @@
            Id
         </th>
         <td mat-cell *matCellDef="let element">
-            {{ element.id }}
+            {{ element.angId }}
         </td>
     </ng-container>
 
@@ -28,7 +28,7 @@
         <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
             <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                 <div class="example-element-diagram">
-                    <div class="example-element-position"> {{ element.id }} </div>
+                    <div class="example-element-position"> {{ element.angId }} </div>
                     <div class="example-element-symbol"> {{ element.name }} </div>
                     <!-- <div class="example-element-name"> placeholder1 </div>
                     <div class="example-element-weight"> placeholder2 </div> -->
