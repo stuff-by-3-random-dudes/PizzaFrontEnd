@@ -35,7 +35,7 @@ export class StepperMenuComponent implements OnInit {
       }
       else if (x === true)
       {
-        this.bestellen();
+        //this.bestellen();
       }
       this.ok = x;
     });

@@ -40,7 +40,7 @@
     <mat-step [editable]="false">
     <ng-template matStepLabel >Bestellung auswählen</ng-template>
     <div>
-    <button mat-button matStepperNext (click)="auswaehlbar=false;bestellbar=true;auswaehlbar=false">Weiter</button>
+    <!-- <button mat-button matStepperNext (click)="auswaehlbar=false;bestellbar=true;auswaehlbar=false">Weiter</button> -->
     <app-pizzas></app-pizzas>
     </div>
     </mat-step>
@@ -53,14 +53,14 @@
             <input [readonly]="ok" #pw type="password" matInput placeholder="Passwort" required>
         </mat-form-field>
         <div *ngIf="!ok">
-          <button mat-button (click)="pruefe(un.value, pw.value);">Prüfen</button>
+          <button mat-button (click)="pruefe(un.value, pw.value);" >Prüfen</button>
         </div>
         <div *ngIf="ok">
-            <button mat-button (click)="bestellbar=false" matStepperNext>Bestellen</button>
+            <button mat-button (click)="bestellen()" matStepperNext>Bestellen</button>
         </div>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Bestätigung</ng-template>
+        <ng-template matStepLabel>Bestellen</ng-template>
         <div>
           <!-- <ng-component *ngFor="let best of bestellungen">
             {{ best }}
